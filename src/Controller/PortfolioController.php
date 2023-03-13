@@ -21,40 +21,6 @@ class PortfolioController extends AbstractController
         ]);
     }
 
-    
-    public function create(Request $request)
-{
-    $portfolio = new Portfolio();
-    $form = $this->createForm(PortfolioType::class, $portfolio);
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-        // Procesar la imagen
-        $imageFile = $form->get('image')->getData();
-        $newFilename = uniqid().'.'.$imageFile->guessExtension();
-
-        // Mover el archivo a la ubicación deseada
-        $imageFile->move(
-            $this->getParameter('images_directory'),
-            $newFilename
-        );
-
-        // Almacenar la ruta de la imagen en la entidad Portfolio
-        $portfolio->setImage($newFilename);
-
-        // Guardar la entidad en la base de datos
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($portfolio);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('portfolio_show', ['id' => $portfolio->getId()]);
-    }
-
-    return $this->render('portfolio/create.html.twig', [
-        'form' => $form->createView(),
-    ]);
-}
-
     #[Route('/new', name: 'app_portfolio_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PortfolioRepository $portfolioRepository): Response
     {

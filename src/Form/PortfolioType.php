@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 class PortfolioType extends AbstractType
 {
@@ -16,7 +16,7 @@ class PortfolioType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('image', FileType::class)
+            ->add('image')
         ;
     }
 
