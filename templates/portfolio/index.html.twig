@@ -22,6 +22,7 @@
                 <td>{{ portfolio.name }}</td>
                 <td>{{ portfolio.description }}</td>
                 <td>{{ portfolio.image }}</td>
+                <td>{{ portfolio.link }}</td>
                 <td>
                     <a href="{{ path('app_portfolio_show', {'id': portfolio.id}) }}">show</a>
                     <a href="{{ path('app_portfolio_edit', {'id': portfolio.id}) }}">edit</a>

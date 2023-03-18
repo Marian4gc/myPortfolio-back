@@ -23,6 +23,9 @@ class Portfolio
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $link = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Portfolio
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

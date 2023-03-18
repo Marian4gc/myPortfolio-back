@@ -17,6 +17,7 @@ class PortfolioType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('image')
+            ->add('link')
         ;
     }
 

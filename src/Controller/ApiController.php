@@ -26,6 +26,7 @@ class ApiController extends AbstractController
                 'name' => $p->getName(),
                 'description' => $p->getDescription(),
                 'image' => $p->getImage(),
+                'link' => $p->getLink(),
             ];
             
         }
@@ -34,5 +35,5 @@ class ApiController extends AbstractController
         //return $this->json($data);
         return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
-    }
+}
 
